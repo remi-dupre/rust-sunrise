@@ -1,7 +1,8 @@
 ## sunrise
 
-[![Build Status](https://travis-ci.org/nathan-osman/rust-sunrise.svg?branch=master)](https://travis-ci.org/nathan-osman/rust-sunrise)
-[![MIT License](http://img.shields.io/badge/license-MIT-9370d8.svg?style=flat)](http://opensource.org/licenses/MIT)
+[![](https://img.shields.io/crates/l/sunrise-next)][license]
+[![](https://img.shields.io/crates/v/sunrise-next)][crate]
+[![](https://img.shields.io/docsrs/sunrise-next)][docs]
 
 **This is a fork of [nathan-osman][upstream]'s crate to test new features.**
 
@@ -40,4 +41,7 @@ let (sunrise, sunset) = sunrise::sunrise_sunset(
 );
 ```
 
+[crate]: https://crates.io/crates/sunrise-next "crates.io"
+[docs]: https://docs.rs/sunrise-next "Documentation"
+[license]: http://opensource.org/licenses/MIT "MIT License"
 [upstream]: https://github.com/nathan-osman/rust-sunrise "Upstream Repository"
