@@ -43,7 +43,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "sunrise"
+name = "sunrise-next"
 version = "1.0.0"
 dependencies = [
  "approx",

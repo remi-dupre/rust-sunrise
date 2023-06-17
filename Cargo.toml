@@ -1,5 +1,5 @@
 [package]
-name = "sunrise"
+name = "sunrise-next"
 version = "1.0.0"
 authors = ["Nathan Osman <nathan@quickmediasolutions.com>"]
 description = "Sunrise and sunset calculator"
@@ -9,8 +9,8 @@ categories = ["date-and-time"]
 license = "MIT"
 edition = "2021"
 
-[badges]
-travis-ci = { repository = "nathan-osman/rust-sunrise" }
+[lib]
+name = "sunrise"
 
 [dependencies]
 chrono = { version = "0.4", default-features = false, features = [] }
