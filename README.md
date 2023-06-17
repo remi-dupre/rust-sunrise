@@ -21,7 +21,7 @@ Begin by adding this crate to `Cargo.toml`:
 
 ```toml
 [dependencies]
-sunrise = "1.2"
+sunrise-next = "1.2"
 ```
 
 You can `use` the `sunrise_sunset` function to perform the calculation:
