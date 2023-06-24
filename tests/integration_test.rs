@@ -61,12 +61,12 @@ fn test_altitude() {
 #[test]
 fn test_civil() {
     assert_eq!(
-        solar_day(2023).event_time(SolarEvent::Dusk(DawnType::Civil)),
+        solar_day(2023).event_time(SolarEvent::Dawn(DawnType::Civil)),
         1672551428 // 01/01/2023 06:37:08
     );
 
     assert_eq!(
-        solar_day(2023).event_time(SolarEvent::Dawn(DawnType::Civil)),
+        solar_day(2023).event_time(SolarEvent::Dusk(DawnType::Civil)),
         1672597758 // 01/01/2023 19:29:18
     );
 }
@@ -74,12 +74,12 @@ fn test_civil() {
 #[test]
 fn test_nautical() {
     assert_eq!(
-        solar_day(2023).event_time(SolarEvent::Dusk(DawnType::Nautical)),
+        solar_day(2023).event_time(SolarEvent::Dawn(DawnType::Nautical)),
         1672549860 // 01/01/2023 06:11:00
     );
 
     assert_eq!(
-        solar_day(2023).event_time(SolarEvent::Dawn(DawnType::Nautical)),
+        solar_day(2023).event_time(SolarEvent::Dusk(DawnType::Nautical)),
         1672599327 // 01/01/2023 19:55:27
     );
 }
@@ -87,12 +87,12 @@ fn test_nautical() {
 #[test]
 fn test_astronomical() {
     assert_eq!(
-        solar_day(2023).event_time(SolarEvent::Dusk(DawnType::Astronomical)),
+        solar_day(2023).event_time(SolarEvent::Dawn(DawnType::Astronomical)),
         1672548285 // 01/01/2023 05:44:45
     );
 
     assert_eq!(
-        solar_day(2023).event_time(SolarEvent::Dawn(DawnType::Astronomical)),
+        solar_day(2023).event_time(SolarEvent::Dusk(DawnType::Astronomical)),
         1672600902 // 01/01/2023 20:21:42
     );
 }
