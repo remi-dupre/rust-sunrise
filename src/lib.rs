@@ -47,7 +47,7 @@ pub fn sunrise_sunset(
     year: i32,
     month: u32,
     day: u32,
-) -> (i64, i64) {
+) -> (Option<i64>, Option<i64>) {
     let solar_day = SolarDay::new(latitude, longitude, year, month, day);
 
     (

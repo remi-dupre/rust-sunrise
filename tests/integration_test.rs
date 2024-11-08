@@ -28,16 +28,19 @@ fn solar_day(year: i32) -> SolarDay {
 
 #[test]
 fn test_sunrise() {
-    assert_eq!(sunrise_sunset(0., 0., 1970, 1, 1), (21594, 65228));
+    assert_eq!(
+        sunrise_sunset(0., 0., 1970, 1, 1),
+        (Some(21594), Some(65228))
+    );
 
     assert_eq!(
         solar_day(1970).event_time(SolarEvent::Sunrise),
-        21594 // 01/01/1970 06:59:54
+        Some(21594) // 01/01/1970 06:59:54
     );
 
     assert_eq!(
         solar_day(1970).event_time(SolarEvent::Sunset),
-        65228 // 01/01/1970 19:07:08
+        Some(65228) // 01/01/1970 19:07:08
     );
 }
 
@@ -47,14 +50,14 @@ fn test_altitude() {
         solar_day(1970)
             .with_altitude(123.)
             .event_time(SolarEvent::Sunrise),
-        21494 // 01/01/1970 06:58:14
+        Some(21494) // 01/01/1970 06:58:14
     );
 
     assert_eq!(
         solar_day(1970)
             .with_altitude(-10.)
             .event_time(SolarEvent::Sunrise),
-        21622 // 01/01/1970 07:00:22
+        Some(21622) // 01/01/1970 07:00:22
     );
 }
 
@@ -62,12 +65,12 @@ fn test_altitude() {
 fn test_civil() {
     assert_eq!(
         solar_day(2023).event_time(SolarEvent::Dawn(DawnType::Civil)),
-        1672551428 // 01/01/2023 06:37:08
+        Some(1672551428) // 01/01/2023 06:37:08
     );
 
     assert_eq!(
         solar_day(2023).event_time(SolarEvent::Dusk(DawnType::Civil)),
-        1672597758 // 01/01/2023 19:29:18
+        Some(1672597758) // 01/01/2023 19:29:18
     );
 }
 
@@ -75,12 +78,12 @@ fn test_civil() {
 fn test_nautical() {
     assert_eq!(
         solar_day(2023).event_time(SolarEvent::Dawn(DawnType::Nautical)),
-        1672549860 // 01/01/2023 06:11:00
+        Some(1672549860) // 01/01/2023 06:11:00
     );
 
     assert_eq!(
         solar_day(2023).event_time(SolarEvent::Dusk(DawnType::Nautical)),
-        1672599327 // 01/01/2023 19:55:27
+        Some(1672599327) // 01/01/2023 19:55:27
     );
 }
 
@@ -88,11 +91,24 @@ fn test_nautical() {
 fn test_astronomical() {
     assert_eq!(
         solar_day(2023).event_time(SolarEvent::Dawn(DawnType::Astronomical)),
-        1672548285 // 01/01/2023 05:44:45
+        Some(1672548285) // 01/01/2023 05:44:45
     );
 
     assert_eq!(
         solar_day(2023).event_time(SolarEvent::Dusk(DawnType::Astronomical)),
-        1672600902 // 01/01/2023 20:21:42
+        Some(1672600902) // 01/01/2023 20:21:42
     );
+}
+
+#[test]
+fn test_polar_day() {
+    assert_eq!(sunrise_sunset(85., 0., 1970, 8, 1), (None, None));
+
+    let arctic_polar_day = SolarDay::new(85., 0., 1970, 8, 1);
+    assert_eq!(arctic_polar_day.event_time(SolarEvent::Sunrise), None);
+    assert_eq!(arctic_polar_day.event_time(SolarEvent::Sunset), None);
+
+    let antarctic_polar_night = SolarDay::new(-85., 0., 1970, 8, 1);
+    assert_eq!(antarctic_polar_night.event_time(SolarEvent::Sunrise), None);
+    assert_eq!(antarctic_polar_night.event_time(SolarEvent::Sunset), None);
 }
