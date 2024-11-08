@@ -87,9 +87,25 @@ impl SolarDay {
     }
 
     /// Get the UNIX timestamp for when the input event will happen.
-    pub fn event_time(&self, event: SolarEvent) -> i64 {
+    ///
+    /// For non-existing events (e.g., sunrise or sunset in a polar night or day) this returns None.
+    ///
+    /// ```
+    /// use sunrise::{SolarDay, SolarEvent};
+    ///
+    /// // January 1, 2016 in Toronto
+    /// assert!(SolarDay::new(43.6532, -79.3832, 2016, 1, 1).event_time(SolarEvent::Sunrise).is_some());
+    ///
+    /// // January 1, 2016 in Longyearbyen, Svalbard
+    /// assert!(SolarDay::new(78.216667, 15.633333, 2016, 1, 1).event_time(SolarEvent::Sunrise).is_none());
+    /// ```
+    pub fn event_time(&self, event: SolarEvent) -> Option<i64> {
         let hour_angle = hour_angle(self.lat, self.declination, self.altitude, event);
+        if hour_angle.is_nan() {
+            return None;
+        }
+
         let frac = hour_angle / (2. * PI);
-        julian_to_unix(self.solar_transit + frac)
+        Some(julian_to_unix(self.solar_transit + frac))
     }
 }
