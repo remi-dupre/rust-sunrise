@@ -5,6 +5,9 @@
 [![](https://img.shields.io/docsrs/sunrise-next)][docs]
 
 **This is a fork of [nathan-osman][upstream]'s crate to test new features.**
+[![](https://img.shields.io/crates/l/sunrise)][license]
+[![](https://img.shields.io/crates/v/sunrise)][crate]
+[![](https://img.shields.io/docsrs/sunrise)][docs]
 
 This crate provides a function for calculating sunrise and sunset times using [this method](https://en.wikipedia.org/wiki/Sunrise_equation#Complete_calculation_on_Earth).
 
@@ -21,20 +24,20 @@ Begin by adding this crate to `Cargo.toml`:
 
 ```toml
 [dependencies]
-sunrise-next = "1.2"
+sunrise-next = "1.3"
 ```
 
 You can `use` the `sunrise_sunset` function to perform the calculation:
 
 ```rust
 // Calculate times for January 1, 2016 in Toronto
-let (sunrise, sunset) = sunrise::sunrise_sunset(43.6532, -79.3832, 2016, 1, 1);
+let (sunrise, sunset) = sunrise_next::sunrise_sunset(43.6532, -79.3832, 2016, 1, 1);
 ```
 
 If you need more refined control, you can use the `SolarDay` struct:
 
 ```rust
-use sunrise::{sunrise_sunset, SolarDay, SolarEvent, DawnType};
+use sunrise_next::{sunrise_sunset, SolarDay, SolarEvent, DawnType};
 
 let dawn = SolarDay::new(43.6532, -79.3832, 2016, 1, 1)
     .with_altitude(54.)

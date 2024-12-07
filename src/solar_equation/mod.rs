@@ -44,7 +44,7 @@ use crate::math::PI;
 /// # Example
 ///
 /// ```
-/// use sunrise::{sunrise_sunset, SolarDay, SolarEvent, DawnType};
+/// use sunrise_next::{sunrise_sunset, SolarDay, SolarEvent, DawnType};
 ///
 /// // January 1, 2016 in Toronto
 /// let solar_day = SolarDay::new(43.6532, -79.3832, 2016, 1, 1);

@@ -20,7 +20,7 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 
-use sunrise::{sunrise_sunset, DawnType, SolarDay, SolarEvent};
+use sunrise_next::{sunrise_sunset, DawnType, SolarDay, SolarEvent};
 
 fn solar_day(year: i32) -> SolarDay {
     SolarDay::new(0., 0., year, 1, 1)
