@@ -4,12 +4,9 @@
 [![](https://img.shields.io/crates/v/sunrise-next)][crate]
 [![](https://img.shields.io/docsrs/sunrise-next)][docs]
 
-**This is a fork of [nathan-osman][upstream]'s crate to test new features.**
-[![](https://img.shields.io/crates/l/sunrise)][license]
-[![](https://img.shields.io/crates/v/sunrise)][crate]
-[![](https://img.shields.io/docsrs/sunrise)][docs]
-
 ⚠️ This repository is deprecated as all changes have been ported upstream, please use [sunrise](https://crates.io/crates/sunrise).
+
+**This is a fork of [nathan-osman][upstream]'s crate to test new features.**
 
 This crate provides a function for calculating sunrise and sunset times using [this method](https://en.wikipedia.org/wiki/Sunrise_equation#Complete_calculation_on_Earth).
 
