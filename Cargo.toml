@@ -1,6 +1,6 @@
 [package]
 name = "sunrise-next"
-version = "1.2.4"
+version = "1.2.5"
 authors = ["Nathan Osman <nathan@quickmediasolutions.com>"]
 description = "Sunrise and sunset calculator"
 repository = "https://github.com/nathan-osman/rust-sunrise"
